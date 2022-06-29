@@ -11,8 +11,8 @@ class MyHomePage extends StatelessWidget {
   var data;
 
   info() async {
-    var position = await GetPosition();
-    data = await client.getData('12.9044','77.5649');
+    //var position = await GetPosition();
+    data = await client.getData(36.43, 116);
     return data;
   }
 
@@ -53,17 +53,17 @@ class MyHomePage extends StatelessWidget {
                   Text('Monday , 28 June',
                       style: TextStyle(
                         color: Colors.white.withOpacity(0.9),
-                        fontSize: 20,
+                        fontSize: 15,
                       )),
                   SizedBox(
                     height: 40,
                   ),
-                  Text('Sunny',
+                  Text('${data?.condition}',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 30,
                       )),
-                  Text('10º',
+                  Text('${data?.temp}',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 50,
@@ -78,7 +78,7 @@ class MyHomePage extends StatelessWidget {
                           // ignore: prefer_const_literals_to_create_immutables
                           children: [
                             Text(
-                              '17.1 km/hr',
+                              '${data?.wind}',
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 15,
@@ -86,7 +86,7 @@ class MyHomePage extends StatelessWidget {
                             ),
                             Text('Wind',
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 10))
+                                    color: Colors.white, fontSize: 20))
                           ],
                         ),
                       )
